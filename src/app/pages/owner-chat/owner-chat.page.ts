@@ -34,7 +34,6 @@ export class OwnerChatPage implements OnInit {
   async loadMessages(){
     this.utils.presentLoading('Loading...');
     this.channelName = localStorage.getItem('channelName');
-    debugger
     firebase.database().ref(`chat/${this.channelName}/messages`).orderByChild('time').on('value', snapshot => {
       this.messages = [];
       snapshot.forEach((node) => {

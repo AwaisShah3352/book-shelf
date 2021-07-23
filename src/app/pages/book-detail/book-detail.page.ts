@@ -20,16 +20,13 @@ export class BookDetailPage implements OnInit {
                 public actionCtrl: ActionSheetController,
                 public navCtrl: NavController,
                 private reviewService: ReviewService,
-                private appLauncher: AppLauncher,
+                // private appLauncher: AppLauncher,
                 private platform: Platform,
                 public popoverController: PopoverController) {
     }
 
     ngOnInit() {
-        debugger
         this.book = JSON.parse(localStorage.getItem('book'));
-        debugger
-        console.log('book', this.book);
     }
 
     async moreOptions() {
@@ -74,12 +71,12 @@ export class BookDetailPage implements OnInit {
             options.packageName = 'pk.com.telenor.phoenix'
         }
 
-        this.appLauncher.canLaunch(options).then((canLaunch: boolean) => {
-            console.log('EP is available');
-            this.appLauncher.launch(options);
-        }).catch((error: any) => {
-            console.error('Easypaisa  is not available');
-        });
+        // this.appLauncher.canLaunch(options).then((canLaunch: boolean) => {
+        //     console.log('EP is available');
+        //     this.appLauncher.launch(options);
+        // }).catch((error: any) => {
+        //     console.error('Easypaisa  is not available');
+        // });
     }
 
     openJazzCash() {
@@ -88,13 +85,13 @@ export class BookDetailPage implements OnInit {
             options.uri = 'jazzcash://'
         }
 
-        this.appLauncher.canLaunch(options).then((canLaunch: boolean) => {
-            console.log('JC is available');
-            this.appLauncher.launch(options);
-        }).catch((error: any) => {
-            alert(error);
-            console.error('Easypaisa  is not available');
-        });
+        // this.appLauncher.canLaunch(options).then((canLaunch: boolean) => {
+        //     console.log('JC is available');
+        //     this.appLauncher.launch(options);
+        // }).catch((error: any) => {
+        //     alert(error);
+        //     console.error('Easypaisa  is not available');
+        // });
     }
 
     async giveFeedback() {

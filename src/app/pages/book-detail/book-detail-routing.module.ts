@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+// import {AppLauncher} from "@ionic-native/app-launcher/ngx";
 import { BookDetailPage } from './book-detail.page';
-import {AppLauncher} from "@ionic-native/app-launcher";
-import {AppComponent} from "../../app.component";
 
 const routes: Routes = [
   {
@@ -15,6 +13,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  declarations: [AppLauncher],
+  // providers: [AppLauncher]
 })
 export class BookDetailPageRoutingModule {}

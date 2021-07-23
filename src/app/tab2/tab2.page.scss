@@ -30,6 +30,10 @@
   min-height: auto;
 }
 
+.item {
+  margin: -15px;
+  --background: #ededed;
+}
 .button {
   height: 35px;
   text-transform: capitalize;
@@ -76,6 +80,8 @@ ion-content {
       padding: 0px 0px 0px 0px;
       --color: #22215B;
       min-height: 11vh;
+      background: #ededed;
+      text-transform: capitalize;
 
     .inputCont {
       --min-height: 55px;

@@ -31,7 +31,7 @@
           </ion-row>
           <ion-row>
             <ion-col size="6">
-              <button (click)="openEasyPaisa()">EasyPaisa</button>
+              <ion-button (click)="openEasyPaisa()">EasyPaisa</ion-button>
             </ion-col>
             <ion-col size="6">
               <ion-button (click)="openJazzCash()">Jazzcash</ion-button>
@@ -49,7 +49,7 @@
           </ion-row>
           <ion-row>
             <ion-col size="12">
-              <ion-item lines="none" style="margin: -15px;">
+              <ion-item lines="none" class="item">
                 <p>Summary</p>
                 <ion-icon color="primary" *ngIf="book?.show" (click)="expandCLick()" slot="end"
                           name="chevron-up-sharp"></ion-icon>

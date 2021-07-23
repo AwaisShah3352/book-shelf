@@ -28,7 +28,6 @@ export class AdminChatPage implements OnInit {
     }
 
     loadMessages() {
-        // debugger
         const ref = 'admin-' + this.uid;
         firebase.database().ref(`admin-chat/${ref}/messages`).orderByChild('time').on('value', snapshot => {
             this.messages = [];

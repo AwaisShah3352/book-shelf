@@ -1,11 +1,10 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>Books</ion-title>
-        <ion-icon color="primary" name="add-circle" slot="end" size="large"></ion-icon>
     </ion-toolbar>
     <ion-toolbar class="toolbar">
         <ion-card class="searchBar card">
-            <ion-item lines="none">
+            <ion-item style="--background: #ededed;" lines="none">
                 <ion-icon name="search" color="primary" slot="start"></ion-icon>
                 <ion-input [(ngModel)]="searchText" (ionChange)="searchBook()" placeholder="Search"></ion-input>
                 <ion-icon (click)="closeSearch()" *ngIf="searchText" name="close" color="primary" slot="end"></ion-icon>

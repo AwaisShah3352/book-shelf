@@ -1,3 +1,9 @@
+
+.item {
+  margin: -15px;
+  --background: #ededed;
+}
+
 ion-content {
   --background: #fafafa;
   --padding-top: 1.5em;
@@ -12,6 +18,7 @@ ion-content {
     --color: #22215B;
     min-height: 11vh;
     text-transform: capitalize;
+    background: #ededed;
 
     .inputCont {
       --min-height: 55px;
