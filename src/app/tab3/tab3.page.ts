@@ -94,14 +94,7 @@ export class Tab3Page {
                     icon: 'mail',
                     cssClass: 'primary',
                     handler: () => {
-                        console.log('Archive clicked');
-                        if (this.user.isAdmin) {
-                            this.navCtrl.navigateForward(['/admin-channels']);
-                        } else if (this.user.isStudent) {
-                            this.navCtrl.navigateForward(['/student-help-desk']);
-                        } else {
-                            this.navCtrl.navigateForward(['/teacher-help-desk']);
-                        }
+                        this.navCtrl.navigateForward(['/admin-chat']);
                     }
                 },
                 {

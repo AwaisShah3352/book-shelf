@@ -138,7 +138,7 @@ export class AddBookPage implements OnInit {
 
     openCamera(type) {
         const options: CameraOptions = {
-            quality: 40,
+            quality: 20,
             sourceType: type,
             destinationType: this.camera.DestinationType.DATA_URL,
             encodingType: this.camera.EncodingType.JPEG,

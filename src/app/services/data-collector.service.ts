@@ -24,7 +24,6 @@ export class DataCollectorService {
                 book.show = false;
                 this.books.push(book);
                 this.setValue('data');
-                console.log('books: ', this.books);
             });
         });
     }
@@ -53,23 +52,5 @@ export class DataCollectorService {
             });
             this.setValue('books');
         });
-    }
-
-    createGroups(array, keyName): any {
-        const result: any = array.reduce((r, a) => {
-            r[a[`${keyName}`]] = r[a[`${keyName}`]] || [];
-            r[a[`${keyName}`]].push(a);
-            return r;
-        }, Object.create(null));
-        console.log('00000000000000', result);
-        const resultArray = Object.keys(result).map((courseIndex) => {
-            const course = result[courseIndex];
-            return course;
-        });
-        resultArray.forEach((cours, index) => {
-            cours.courseKey = cours[index].key;
-        });
-        console.log('grouped courses for no of students.: ', resultArray);
-        return resultArray;
     }
 }

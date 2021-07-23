@@ -39,3 +39,11 @@
   --padding-start: 0.5em;
   --padding-end: 0.5em;
 }
+
+.image {
+  width: 75px;
+  max-width: 75px;
+  max-height: 75px;
+  border-radius: 50%;
+  object-fit: none;
+}

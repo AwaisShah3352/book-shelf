@@ -21,8 +21,8 @@
                 <img class="image" src="{{book?.image || 'assets/books/1.jpeg'}}"/>
                 <ion-card-header style="padding: 10px;">
                     <ion-label>{{book?.name || 'Book Name'}}</ion-label>
-                    <p *ngIf="book?.price !== 0">Rs.{{book?.price}}</p>
-                    <p *ngIf="book?.price === 0" style="color: #2dd36f">Free</p>
+                    <p *ngIf="book.price > 0">Rs.{{book?.price}}</p>
+                    <p *ngIf="!book.price > 0" style="color: #2dd36f">Free</p>
                 </ion-card-header>
             </ion-card>
         </ion-col>

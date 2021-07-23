@@ -11,7 +11,7 @@ import {UserService} from '../../services/user.service';
 export class AdminChatPage implements OnInit {
     messages = [];
     user: any;
-    selectedEmail: any;
+    uid;
     newMsg: '';
     loading: any;
     @ViewChild(IonContent) content: IonContent;
@@ -20,39 +20,45 @@ export class AdminChatPage implements OnInit {
                 private service: UserService,
                 private readonly toastCtrl: ToastController) {
         this.user = this.service.getUser();
+        this.uid = this.user.uid;
     }
 
     ngOnInit() {
-        this.selectedEmail = localStorage.getItem('selectedEmail');
         this.loadMessages();
     }
 
     loadMessages() {
-        const ref = 'admin-' + this.selectedEmail.split('.').join('');
-        firebase.database().ref(`chat/${ref}/messages`).orderByChild('time').on('value', snapshot => {
+        // debugger
+        const ref = 'admin-' + this.uid;
+        firebase.database().ref(`admin-chat/${ref}/messages`).orderByChild('time').on('value', snapshot => {
             this.messages = [];
-            // tslint:disable-next-line:no-
-            ;
             snapshot.forEach((node) => {
                 this.messages.push(node.val());
-                console.log(this.messages);
             });
+            console.log(this.messages);
         }, err => {
             alert(err);
         });
     }
 
     sendMessage() {
-        const ref = 'admin-' + this.selectedEmail.split('.').join('');
+        const ref = 'admin-' + this.uid;
         const key = firebase.database().ref().push().key;
         if (!this.messages.length) {
-            firebase.database().ref(`chat/${ref}`).set({
-                sender: this.selectedEmail,
+            firebase.database().ref(`admin-channels/${key}`).set({
+                name: ref,
+                sender: this.user.fullName,
+                email: this.user.email,
+                image: this.user.profileImage ? this.user.profileImage : '',
+                time: Date.now(),
+                key: key
             }).then(res => {
             }).catch(err => console.log(err));
+        } else {
+
         }
-        firebase.database().ref(`chat/${ref}/messages`).child(key).set({
-            sender: 'admin',
+        firebase.database().ref(`admin-chat/${ref}/messages`).child(key).set({
+            sender: 'app-user',
             name: this.user.fullName,
             time: Date.now(),
             message: this.newMsg
